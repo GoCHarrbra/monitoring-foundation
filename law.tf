@@ -1,13 +1,9 @@
+# LAW depends on the RG via direct reference (ensures correct creation order)
 resource "azurerm_log_analytics_workspace" "law" {
-  name                = "${var.prefix}-law"
+  name                = var.law_name
   location            = var.location
-  resource_group_name = azurerm_resource_group.rg.name
-
-  sku               = "PerGB2018"
-  retention_in_days = var.retention_in_days
-
-  # (Optional) uncomment if you want to cap ingestion
-  # daily_quota_gb = 0   # 0 means unlimited
-
-  tags = var.tags
+  resource_group_name = azurerm_resource_group.monitoring.name
+  sku                 = var.law_sku
+  retention_in_days   = var.law_retention_days
+  tags                = var.tags
 }
