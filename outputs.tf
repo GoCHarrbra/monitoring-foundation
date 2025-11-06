@@ -13,3 +13,8 @@ output "law_id" {
 output "location" {
   value = azurerm_resource_group.monitoring.location
 }
+
+output "tags" {
+  description = "Tags applied to the Monitoring RG/LAW."
+  value       = var.tags
+}
