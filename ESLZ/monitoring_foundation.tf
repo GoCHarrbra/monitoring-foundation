@@ -44,3 +44,8 @@ output "location" {
   value       = module.foundation.location
   description = "Location of deployed resource"
 }
+
+output "tags" {
+  description = "Tags applied to the Monitoring RG/LAW."
+  value       = module.foundation.tags
+}
