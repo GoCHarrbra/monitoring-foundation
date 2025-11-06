@@ -24,7 +24,7 @@ variable "tags" {
 }
 
 module "foundation" {
-  source = "github.com/GoCHarrbra/monitoring-foundation.git?ref=v0.1.0"
+  source = "github.com/GoCHarrbra/monitoring-foundation.git?ref=v0.2.0"
 
   rg_name            = var.rg_name
   law_name           = var.law_name
@@ -35,17 +35,17 @@ module "foundation" {
 }
 
 # (Optional) surface key outputs from the module
-output "foundation_rg_name" {
-  value       = module.foundation.resource_group_name
+output "rg_name" {
+  value       = module.foundation.rg_name
   description = "Monitoring Resource Group name."
 }
 
-output "foundation_law_name" {
+output "law_name" {
   value       = module.foundation.law_name
   description = "Log Analytics Workspace name."
 }
 
-output "foundation_law_id" {
+output "law_id" {
   value       = module.foundation.law_id
   description = "Log Analytics Workspace resource ID."
 }
