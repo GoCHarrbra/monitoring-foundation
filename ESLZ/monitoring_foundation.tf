@@ -15,13 +15,13 @@ variable "foundation" {
 module "foundation" {
   source = "github.com/GoCHarrbra/monitoring-foundation.git?ref=v0.3.0"
 
-  rg_name            = var.rg_name
-  law_name           = var.law_name
-  location           = var.location
-  law_sku            = var.law_sku
-  law_retention_days = var.law_retention_days
-  law_daily_cap_gb = var.law_daily_cap_gb
-  tags               = var.tags
+  rg_name            = var.foundation.rg_name
+  law_name           = var.foundation.law_name
+  location           = var.foundation.location
+  law_sku            = var.foundation.law_sku
+  law_retention_days = var.foundation.law_retention_days
+  law_daily_cap_gb = var.foundation.law_daily_cap_gb
+  tags               = var.foundation.tags
 }
 
 # (Optional) surface key outputs from the module
@@ -38,4 +38,9 @@ output "law_name" {
 output "law_id" {
   value       = module.foundation.law_id
   description = "Log Analytics Workspace resource ID."
+}
+
+output "location" {
+  value       = module.foundation.location
+  description = "Location of deployed resource"
 }
