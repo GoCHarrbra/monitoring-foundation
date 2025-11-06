@@ -21,3 +21,7 @@ variable "law_retention_days" {
 variable "tags" {
   type = map(string)
 }
+
+variable "law_daily_cap_gb" {
+  type = number
+}
